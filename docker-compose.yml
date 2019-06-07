@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  # fake api returns mock data see: https://github.com/txn2/fxapi
+  # metrics: http://localhost:8888
+  fxapi:
+    container_name: fxapi
+    image: txn2/fxapi:latest
+    ports:
+      - 8888:8080
+    restart: on-failure

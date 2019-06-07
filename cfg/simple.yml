@@ -1,0 +1,37 @@
+# This is a sample configuration used for testing
+# run docker-compose to start a fake API server.
+endpoints:
+  # endpoint names are used to route HTTP GET
+  twentyfour:
+    description: "the number 24"
+    location: "http://localhost:8888/fixed-number/24"
+    transform: CountBins
+  twentyfive:
+    description: "the number 25"
+    location: "http://localhost:8888/fixed-number/25"
+    transform: CountBins
+  lorem:
+    description: "some lorem"
+    location: "http://localhost:8888/lorem"
+    transform: PrependLorem
+
+transforms:
+  CountBins:
+    description: |
+      Convert an integer to binary and count the number on positions
+    # script written in tengo
+    # see: https://github.com/d5/tengo/blob/master/docs/tutorial.md
+    # all scripts receive "input" and must populate "output"
+    script: |
+      output := 0
+      n := int(input)
+
+      for n > 0 {
+      	output += n & 1
+      	n >>= 1
+      }
+  PrependLorem:
+    description: |
+      Prepend LOREM:
+    script: |
+      output := "LOREM: " + input
