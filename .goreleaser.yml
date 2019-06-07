@@ -106,9 +106,9 @@ dockers:
       - mxt
     dockerfile: Dockerfile
     image_templates:
-      - "txn2/mxt:latest"
       - "txn2/mxt:{{ .Tag }}"
       - "txn2/mxt:amd64-{{ .Tag }}"
+      - "txn2/mxt:latest"
     build_flag_templates:
       - "--label=org.label-schema.schema-version=1.0"
       - "--label=org.label-schema.version={{.Version}}"
@@ -121,8 +121,8 @@ dockers:
       - mxt
     dockerfile: Dockerfile
     image_templates:
-      - "txn2/mxt:armv6-latest"
       - "txn2/mxt:armv6-{{ .Tag }}"
+      - "txn2/mxt:armv6-latest"
     build_flag_templates:
       - "--label=org.label-schema.schema-version=1.0"
       - "--label=org.label-schema.version={{.Version}}"
