@@ -7,6 +7,7 @@
 
 Endpoint data transformation shim using [Tengo](https://github.com/d5/tengo) for scripting.
 
+![mxt config diagram](./diagram.png)
 
 ## Demo
 
